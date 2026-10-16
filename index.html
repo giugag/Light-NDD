@@ -226,30 +226,142 @@
                 </p>
 
             </div>
-
-<!-- Study timeline -->
-            <section class="timeline">
-              <h2>What taking part looks like</h2>
-              <p>{Intro line}</p>
-              <ol>
-                <li>
-                  <span class="step-title">{Step title}</span>
-                  <span class="step-meta">{online / at home / in the lab} · {time}</span>
-                  <p>{Short description}</p>
-                </li>
-                <!-- repeat for each step -->
-              </ol>
+     
+            <!-- Study timeline -->
+            <section class="study-timeline mt-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Timeline of the study
+                </h2>
+            
+                <p class="text-lg text-gray-600 mb-8">
+                    Here is an overview of the steps involved in taking part
+                    in the Light_NDD study.
+                </p>
+            
+                <ol class="timeline-steps">
+                    <li>
+                        <span>Reply to study advertisement</span>
+                    </li>
+                    <li>
+                        <span>Read Participant Information Sheet</span>
+                    </li>
+                    <li>
+                        <span>Informed Consent</span>
+                    </li>
+                    <li>
+                        <span>Initial Online Questionnaires</span>
+                    </li>
+                    <li>
+                        <span>2 weeks of actigraphy &amp; light sensors</span>
+                    </li>
+                    <li>
+                        <span>Main Online Questionnaires (light, sleep, chronotype, mood)</span>
+                    </li>
+                    <li>
+                        <span>In-lab evening session: pupil measurement</span>
+                    </li>
+                    <li>
+                        <span>Debriefing</span>
+                    </li>
+                    <li>
+                        <span>Receive incentives</span>
+                    </li>
+                </ol>
+            
+                <p class="timeline-caption">Timeline of the study.</p>
             </section>
             
             <style>
-            .timeline ol { list-style: none; padding: 0; display: grid; gap: 1rem; }
-            .timeline li { border-left: 4px solid currentColor; padding: 0.5rem 1rem; }
-            .step-title { display: block; font-weight: 700; }
-            .step-meta { display: block; font-size: 0.9em; opacity: 0.8; }
-            @media (min-width: 900px) {
-              .timeline ol { grid-template-columns: repeat(3, 1fr); }
+            .study-timeline {
+                margin-top: 4rem;
+                margin-bottom: 3rem;
+                color: #1f2937;
+            }
+            
+            .timeline-steps {
+                --arrow-width: 17px;
+                --step-border: #888;
+            
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                align-items: stretch;
+                gap: 0;
+            }
+            
+            .timeline-steps li {
+                position: relative;
+                flex: 1 1 0;
+                min-width: 0;
+                min-height: 88px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            
+                background: #fff;
+                border: 1px solid var(--step-border);
+                padding: 12px 15px 12px 20px;
+            
+                font-size: 12px;
+                line-height: 1.35;
+            
+                /* Create the chevron shape */
+                clip-path: polygon(
+                    0 0,
+                    calc(100% - var(--arrow-width)) 0,
+                    100% 50%,
+                    calc(100% - var(--arrow-width)) 100%,
+                    0 100%,
+                    var(--arrow-width) 50%
+                );
+            
+                margin-right: -1px;
+            }
+            
+            /* Keep the first step flat on the left */
+            .timeline-steps li:first-child {
+                clip-path: polygon(
+                    0 0,
+                    calc(100% - var(--arrow-width)) 0,
+                    100% 50%,
+                    calc(100% - var(--arrow-width)) 100%,
+                    0 100%
+                );
+                padding-left: 12px;
+            }
+            
+            /* Keep the text above the shape */
+            .timeline-steps li span {
+                position: relative;
+                z-index: 1;
+            }
+            
+            /* Italic blue caption, like the reference image */
+            .timeline-caption {
+                margin-top: 8px;
+                color: #24549a;
+                font-family: Georgia, "Times New Roman", serif;
+                font-style: italic;
+                font-size: 14px;
+            }
+            
+            /* Allow horizontal scrolling on smaller screens */
+            @media (max-width: 900px) {
+                .timeline-steps {
+                    overflow-x: auto;
+                    padding-bottom: 12px;
+                }
+            
+                .timeline-steps li {
+                    flex: 0 0 115px;
+                    min-height: 88px;
+                    font-size: 11px;
+                }
             }
             </style>
+
             
             <!-- Contact -->
 
